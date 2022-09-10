@@ -20,7 +20,7 @@ const Chat = () => {
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
 
-  const ENDPOINT = "https://chat57-api.vercel.app";
+  const ENDPOINT = "https://chat57-api.vercel.app:5000";
 
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
