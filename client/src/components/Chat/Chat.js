@@ -11,6 +11,7 @@ import Input from "../Input/Input";
 import "./Chat.css";
 
 let socket;
+const MODE = process.env.REACT_APP_MODE;
 
 const Chat = () => {
   const location = useLocation();
@@ -20,7 +21,10 @@ const Chat = () => {
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
 
-  const ENDPOINT = "https://chat57-api.herokuapp.com/";
+  const ENDPOINT =
+    MODE === "dev"
+      ? "http://localhost:5000"
+      : "https://chat57-api.herokuapp.com/";
 
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
